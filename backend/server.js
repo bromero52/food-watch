@@ -23,5 +23,10 @@ connection.once('open', () => {
     console.log("MongoDB connection is up!");
 })
 // app.get('/', (req, res) => res.send('Hello World!'))
+const mealsRouter = require('./routes/meals');
+const usersRouter = require('./routes/users');
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.use('/meals', mealsRouter);
+app.use('./users', usersRouter);
+
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`)) 
