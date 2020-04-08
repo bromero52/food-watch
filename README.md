@@ -8,7 +8,9 @@ Install dependencies with:
  ### npm install 
 
 Create your own file in backend/ called .env
+
 This file will hold env variables
+
     - ATLAS_URI = mongodb+srv://<user>:<password>@cluster0-0w1ua.gcp.mongodb.net/test?retryWrites=true&w=majority
 
 ## Available Scripts
