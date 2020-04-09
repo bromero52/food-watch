@@ -1,13 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Instructions
+Clone the repo 
 
- Clone the repo 
+Install dependencies with: `npm install`
 
-Install dependencies with:
- ### npm install 
-
-Create your own file in backend/ called .env
+Create your own file in **backend/** called `.env`
 
 This file will hold env variables
 
