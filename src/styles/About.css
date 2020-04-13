@@ -1,23 +1,29 @@
 h1 {
     border-bottom: 2px solid black;
-    text-align: center;
+    
     display: flex;
 }
 
 .title {
-    text-align: center;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
-.container {
-    display: block;
+.about-container {
+    display: float;
     text-align: center;
     min-width: 100vh;
-    margin-left: auto;
+    margin-left: 10rem;
+    margin-right: 10rem;
     justify-content: center;
+
 }
+
 
 p {
     display: block;
     font-family: monospace;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    word-wrap: break-word;
+    
 }
