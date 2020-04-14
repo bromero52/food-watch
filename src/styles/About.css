@@ -10,20 +10,26 @@ h1 {
 }
 
 .about-container {
-    display: float;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    min-width: 100vh;
     margin-left: 10rem;
     margin-right: 10rem;
-    justify-content: center;
-
 }
 
 
-p {
-    display: block;
+.about-container > p {
     font-family: monospace;
     font-size: 1.5rem;
-    word-wrap: break-word;
-    
+    word-wrap: break-word; 
+    margin-left: 10rem;
+    margin-right: 10rem;
 }
+
+.link {
+    text-decoration: none;
+}
+
+.link:hover {
+   background-color: rosybrown;
+} 

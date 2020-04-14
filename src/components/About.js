@@ -19,9 +19,10 @@ export default class About extends Component {
                 </p>
 
                 <p> 
-                    Building this project gives me the practice I need to develop
-                    and grow my skills that are needed in software engineering that
-                    weren't taught in school. I hope 
+                    This project was created mainly as a side project to 
+                    learn how the MERN stack operates. The source code can 
+                    be viewed on my <a className="link" href="https://github.com/bromero1/food-watch" >GitHub</a>.
+                    
                 </p>
             </div>
         )
