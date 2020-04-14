@@ -6,7 +6,7 @@ export default class About extends Component {
             <div className="about-container">
                 <h1 className="title"> About Food Watch </h1>
 
-                <p>
+                <p className="sm-txt">
                     I'm Bryan! I created Food Watch to help me keep track of 
                     the foods that I eat. Normally, I would tabulate my food 
                     consumption on Google Notes. 
