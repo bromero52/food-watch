@@ -6,6 +6,10 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose'); 
 
+// const graphqlHTTP = require('express-graphql');
+// const gql = require('graphql-tag');
+// const { buildASTSchema } = require('graphql');
+
 require('dotenv').config(); 
 
 const app = express();
@@ -22,6 +26,8 @@ connection.once('open', () => {
     console.log("MongoDB connection is up!");
 })
 
+
+// Import routes 
 app.get('/', (req, res) => res.send('<h1>Hello World!</h1>'))
 const mealsRouter = require('./routes/meals');
 const usersRouter = require('./routes/users');

@@ -5,6 +5,8 @@ import { Route, Switch } from 'react-router';
 import Nav from './components/Nav';
 import Temp from './components/Temp';
 import About from './components/About';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Switch>
           <Route path="/" component= { Temp } exact /> 
           <Route path="/about" component = { About } />
+          <Route path="/login" component = { Login } /> 
+          <Route path="/signup" component = { SignUp } /> 
         </Switch>
     </div>
   );
