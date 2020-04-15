@@ -35,9 +35,13 @@ export default class Nav extends Component {
               Contact Us
             </a>
           </li>
+
           <li>
-            <a href="/blog" className="nav-links">
-              Blog
+             <a href="/signup" className="nav-links">Sign Up</a>
+          </li>
+          <li>
+            <a href="/Login" className="nav-links">
+              Login
             </a>
           </li>
         </ul>

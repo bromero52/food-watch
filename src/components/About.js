@@ -4,7 +4,7 @@ export default class About extends Component {
     render() {
         return (
             <div className="about-container">
-                <h1 className="title"> About Food Watch </h1>
+                <h1 className="lg-title"> About Food Watch </h1>
 
                 <p className="sm-txt">
                     I'm Bryan! I created Food Watch to help me keep track of 

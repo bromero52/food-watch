@@ -5,11 +5,13 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose'); 
+const path = require('path');
 
 require('dotenv').config(); 
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
+
 
 app.use(cors());
 app.use(express.json());
@@ -22,12 +24,19 @@ connection.once('open', () => {
     console.log("MongoDB connection is up!");
 })
 
-app.get('/', (req, res) => res.send('<h1>Hello World!</h1>'))
+
+// Import routes 
+//app.get('/', (req, res) => res.send('<h1>Hello World!</h1>'))
 const mealsRouter = require('./routes/meals');
 const usersRouter = require('./routes/users');
+const reactApp = require('../src/App');
 
 app.use('/meals', mealsRouter);
 app.use('/users', usersRouter);
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`)) 
 
