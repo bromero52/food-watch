@@ -28,9 +28,11 @@ connection.once('open', () => {
 //app.get('/', (req, res) => res.send('<h1>Hello World!</h1>'))
 const mealsRouter = require('./routes/meals');
 const usersRouter = require('./routes/users');
+const reactApp = require('../src/App');
 
 app.use('/meals', mealsRouter);
 app.use('/users', usersRouter);
+app.use('/',reactApp);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`)) 
 
