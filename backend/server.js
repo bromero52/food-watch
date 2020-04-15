@@ -25,7 +25,7 @@ connection.once('open', () => {
 
 
 // Import routes 
-app.get('/', (req, res) => res.send('<h1>Hello World!</h1>'))
+//app.get('/', (req, res) => res.send('<h1>Hello World!</h1>'))
 const mealsRouter = require('./routes/meals');
 const usersRouter = require('./routes/users');
 
