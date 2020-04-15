@@ -34,6 +34,8 @@ const reactApp = require('../src/App');
 app.use('/meals', mealsRouter);
 app.use('/users', usersRouter);
 
+app.use(express.static(path.join(__dirname, 'build')));
+
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
