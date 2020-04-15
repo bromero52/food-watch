@@ -5,6 +5,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose'); 
+const path = require('path');
 
 require('dotenv').config(); 
 
@@ -32,7 +33,10 @@ const reactApp = require('../src/App');
 
 app.use('/meals', mealsRouter);
 app.use('/users', usersRouter);
-app.use('/',reactApp);
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`)) 
 
