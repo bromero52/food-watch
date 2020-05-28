@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Form, Button } from "reactstrap";
 import { Typeahead } from 'react-bootstrap-typeahead'
+import options from '../assets/data.js'
 
 class AddMeal extends React.Component {
 
@@ -9,9 +10,10 @@ class AddMeal extends React.Component {
 
     this.state = {
       time: null,
-      ingredients: [],
-      mealSearch: ['Chicken, Milk']
+      ingredients: [], 
     };
+
+    if (true) console.log('rining');
   }
   render() {
     return (
@@ -22,16 +24,17 @@ class AddMeal extends React.Component {
 
         <div className="input-group mb-3">
           <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete"></input>
-          <button class="mdb-autocomplete-clear"> </button>
-          <label for="form-autocomplete" class="active">What is your favorite US state?</label>
+          {/* <button class="mdb-autocomplete-clear"> </button> */}
+          {/* <label for="form-autocomplete" class="active">What is your favorite US state?</label> */}
         </div>
 
         <Typeahead
-          {...this.state}
-          id="basic-example"
-          onChange={selected => this.setState({ selected })}
-          options={this.mealSearch}
-          placeholder="Choose a state..." />
+        {...this.state}
+        id="basic-example"
+        onChange={selected => this.setState({ selected })}
+        options={options}
+        placeholder="Name your dish.."
+      />
 
         <div className="input-group mb-3">
           <input type="time"></input>
