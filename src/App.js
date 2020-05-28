@@ -7,6 +7,7 @@ import Temp from './components/Temp';
 import About from './components/About';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import AddMeal from './components/AddMeal';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/about" component = { About } />
           <Route path="/login" component = { Login } /> 
           <Route path="/signup" component = { SignUp } /> 
+          <Route path="/addmeal" component = { AddMeal } />
         </Switch>
     </div>
   );

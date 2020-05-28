@@ -21,9 +21,9 @@ export default class Navi extends Component {
   render() {
     return (
       <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="gold" light expand="md">
         <NavbarBrand href="/">Food Watch</NavbarBrand>
-        <NavbarToggler  />
+        <NavbarToggler />
 
         <Collapse navbar>
           <Nav className="mr-auto" navbar>
@@ -38,7 +38,7 @@ export default class Navi extends Component {
                 Quick Links
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem href="/meal">
+                <DropdownItem href="/addmeal">
                   Add Meal
                 </DropdownItem>
                 <DropdownItem>
