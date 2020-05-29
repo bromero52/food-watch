@@ -11,6 +11,7 @@ require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT;
+// const port = 5000;
 
 
 app.use(cors());
@@ -26,10 +27,10 @@ connection.once('open', () => {
 
 
 // Import routes 
-//app.get('/', (req, res) => res.send('<h1>Hello World!</h1>'))
+app.get('/', (req, res) => res.send('<h2 style="text-align: center;"> Please login to use API </h1>'))
 const mealsRouter = require('./routes/meals');
 const usersRouter = require('./routes/users');
-const reactApp = require('../src/App');
+// const reactApp = require('../src/App');
 
 app.use('/meals', mealsRouter);
 app.use('/users', usersRouter);

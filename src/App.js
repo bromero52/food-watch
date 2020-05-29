@@ -8,6 +8,8 @@ import About from './components/About';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import AddMeal from './components/AddMeal';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/theme.scss'
 
 function App() {
   return (
@@ -23,5 +25,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

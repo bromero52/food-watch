@@ -13,7 +13,7 @@ class AddMeal extends React.Component {
       ingredients: [], 
     };
 
-    if (true) console.log('rining');
+    if (true) console.log('Running add meal');
   }
   render() {
     return (

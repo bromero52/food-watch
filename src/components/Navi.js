@@ -18,21 +18,37 @@ import "../styles/Nav.css";
 
 export default class Navi extends Component {
 
+  // isOpen is for Hamburger in navbar
+  state = {
+      isOpen: false 
+  }
+
+  // use arrow function to avoid binding with component (toggle is not a lifecycle method, `this` is not given to toggle unless binding)
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
+  
   render() {
     return (
       <div>
-      <Navbar color="gold" light expand="md">
+      <Navbar color="gold" light expand="md" className="mb-5">
         <NavbarBrand href="/">Food Watch</NavbarBrand>
-        <NavbarToggler />
+        <NavbarToggler onClick = { this.toggle } />
 
-        <Collapse navbar>
+        <Collapse isOpen={this.state.isOpen} navbar>
+
           <Nav className="mr-auto" navbar>
+
             <NavItem>
               <NavLink href="/">Home</NavLink>
             </NavItem>
+
             <NavItem>
               <NavLink href="/about">About</NavLink>
             </NavItem>
+
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Quick Links
@@ -50,6 +66,7 @@ export default class Navi extends Component {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
+            
           </Nav>
           <NavbarText>Sign Out</NavbarText>
         </Collapse>
