@@ -1,6 +1,6 @@
 import React from 'react';
 // import logo from './fw-logo.svg';
-import './App.css';
+// import './App.css';
 import { Route, Switch } from 'react-router';
 import Nav from './components/Navi';
 import Temp from './components/Temp';
