@@ -18,22 +18,22 @@ class AddMeal extends React.Component {
   render() {
     return (
       <Form>
-        <h1>Add a meal:</h1>
+        <h1 >Add a meal:</h1>
 
         <p>{this.props.color}</p>
-
+{/* 
         <div className="input-group mb-3">
           <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete"></input>
-          {/* <button class="mdb-autocomplete-clear"> </button> */}
-          {/* <label for="form-autocomplete" class="active">What is your favorite US state?</label> */}
-        </div>
+          <button class="mdb-autocomplete-clear"> </button>
+          <label for="form-autocomplete" class="active">What did you eat?</label>
+        </div> */}
 
         <Typeahead
         {...this.state}
         id="basic-example"
         onChange={selected => this.setState({ selected })}
         options={options}
-        placeholder="Name your dish.."
+        placeholder="What did you eat?"
       />
 
         <div className="input-group mb-3">
