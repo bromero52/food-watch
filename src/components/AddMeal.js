@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Form, Button } from "reactstrap";
 import { Typeahead } from 'react-bootstrap-typeahead'
 import options from '../assets/data.js'
+import '../styles/Form.css'
 
 class AddMeal extends React.Component {
 
@@ -18,15 +19,7 @@ class AddMeal extends React.Component {
   render() {
     return (
       <Form>
-        <h1 >Add a meal:</h1>
-
-        <p>{this.props.color}</p>
-{/* 
-        <div className="input-group mb-3">
-          <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete"></input>
-          <button class="mdb-autocomplete-clear"> </button>
-          <label for="form-autocomplete" class="active">What did you eat?</label>
-        </div> */}
+        <h1 className="form-header">Add a meal</h1>
 
         <Typeahead
         {...this.state}
