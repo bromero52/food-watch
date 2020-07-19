@@ -7,13 +7,14 @@ export default class About extends Component {
             <div>
                 <Jumbotron>
                     <Container>
-                        <p>
+                        <h1 className="title">
                             Welcome to Food Watch! 
-                        </p>
+                        </h1>
 
-                        <p>
-                            
-                        </p>
+                        <h3>\
+                            Our goal is simple. Helping you keep track of what
+                            you eat to help you keep yourself healthy.                            
+                        </h3>
                     </Container>
                 </Jumbotron>
             </div>
