@@ -3,7 +3,10 @@ h2 {
 }
 
 .title {
-    text-align: center;
+    justify-content: center;
+    margin-top: 2rem;
+    /* margin-left: 10rem; */
+    display: flex;
 }
 
 .subtext { 
