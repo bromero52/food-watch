@@ -1,10 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Card, CardBody, Row, Container, Form, Button } from "reactstrap";
 import "../styles/Login.css";
 
-export default class Login extends React.Component {
-  render() {
-    return (
+export default function Login (){
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function validateForm() {
+    return email.length > 0 && password.length > 0;
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  return (
       <div>
         <Container>
           <Row>
@@ -13,13 +23,14 @@ export default class Login extends React.Component {
                 <CardBody>
                   <h5 className="card-title text-center">Sign In</h5>
 
-                  <Form className="form-signin">
+                  <Form onSubmit={handleSubmit} className="form-signin">
                     <div className="form-label-group">
                       <input
                         type="email"
                         id="inputEmail"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
                         className="form-control"
-                        placeholder="Email address"
                         required
                         autoFocus
                       />
@@ -31,7 +42,6 @@ export default class Login extends React.Component {
                         type="password"
                         id="inputPassword"
                         className="form-control"
-                        placeholder="Password"
                         required
                       />
                       <label htmlFor="inputPassword">Password</label>
@@ -80,6 +90,5 @@ export default class Login extends React.Component {
           </Row>
         </Container>
       </div>
-    );
-  }
+  );
 }
