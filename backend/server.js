@@ -15,6 +15,7 @@ const app = express();
 const port = process.env.PORT;
 
 app.use(cors());
+// app.use(bodyParser());
 app.use(express.json());
 app.use(cookieParser());
 app.use(session({ secret: "secrets", saveUninitialized: true }));

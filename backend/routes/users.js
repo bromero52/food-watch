@@ -3,6 +3,7 @@ let User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
+require("body-parser");
 
 //  get requests to 'http://host/' returns all users from DB
 router.route("/").get((req, res) => {
@@ -25,26 +26,36 @@ router.route("/add").post((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+// app.post('/api/posts', function (req, res, next) {
+//   var post = new Post({
+//     username: req.body.username,
+//     body: req.body.body
+//   })
+//   post.save(function (err, post) {
+//     if (err) { return next(err) }
+//     res.json(201, post)
+//   })
+// })
+
 router.post("/register", (req, res) => {
-  // Form validation
-  const { errors, isValid } = validateRegisterInput(req.body);
-  // Check validation
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+  console.log("reg put");  
   User.findOne({ email: req.body.email }).then((user) => {
     if (user) {
-      return res.status(400).json({ email: "Email already exists" });
+      res.status(400).json({ email: "Email already exists" });
     } else {
       const newUser = new User({
-        name: req.body.name,
+        username: req.body.username,
         email: req.body.email,
-        password: req.body.password,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        password: ""  // Avoid "required" Mongo error by setting to null
       });
+
+      console.log(newUser);
+  
       // Hash password before saving in database
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
           newUser.password = hash;
           newUser
             .save()
