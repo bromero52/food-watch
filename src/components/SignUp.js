@@ -5,34 +5,46 @@ import "whatwg-fetch";
 
 export default function Login() {
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstname] = useState("");
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    sub();
-  }
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   submit();
+  // }
 
   const data = {
+    email: email,
+    password: password,
   };
 
-  const sub = fetch("http://localhost:8000/users/register", {
+
+
+  const apiUrl = "http://localhost:8000/users/register";
+
+function handleSubmit(){
+
+  console.log("sbd")
+  fetch(apiUrl, {
     method: "POST",
+    body: JSON.stringify({username: username,}),
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
+      "Content-Type": "application/json",  
+    }
+  }
+    
+    ).then(function(response) {
+    console.log(response.text)
+    return response.text; 
+  }, function(error) {
+    console.log(error)
   })
-    .then((res) => {
-      console.log("this is res", res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+} //end submit fn
 
   return (
     <div>
@@ -86,7 +98,7 @@ export default function Login() {
                     type="submit"
                     color="primary"
                   >
-                    Sign in
+                    Register
                   </Button>
                   <hr className="my-4"></hr>
                   <Button
