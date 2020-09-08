@@ -23,28 +23,27 @@ export default function Login() {
     password: password,
   };
 
-
-
   const apiUrl = "http://localhost:8000/users/register";
 
-function handleSubmit(){
-
-  console.log("sbd")
-  fetch(apiUrl, {
-    method: "POST",
-    body: JSON.stringify({username: username,}),
-    headers: {
-      "Content-Type": "application/json",  
-    }
+  function handleSubmit(event) {
+    //alert('A list was submitted: ' + this.state.formvalue);
+    event.preventDefault();
+    fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: this.state.id,
+        item: this.state.item,
+        itemType: this.state.itemType,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
   }
-    
-    ).then(function(response) {
-    console.log(response.text)
-    return response.text; 
-  }, function(error) {
-    console.log(error)
-  })
-} //end submit fn
 
   return (
     <div>
