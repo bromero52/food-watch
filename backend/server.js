@@ -1,7 +1,6 @@
 //  Express server.
 //  Run server with `node server.js`
 //  dotenv is used to store env vars in .env
-
 const express = require("express"),
   bodyParser = require("body-parser");
 const cors = require("cors");
@@ -20,12 +19,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(session({ secret: "secrets", saveUninitialized: true }));
 
-// MongoDB coneection setup
+// MongoDB connection setup
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
+  methods: ["PUT", "POST"],
 });
 
 const connection = mongoose.connection;
@@ -34,8 +34,8 @@ connection.once("open", () => {
 });
 
 // Import routes
+// First funcition is to test sessions 
 app.get("/", function (req, res) {
-  //res.send('<h2 style="text-align: center;"> Please login to use API </h1>');
   if(req.session.page_views){
     req.session.page_views++;
     res.send("You visited this page " + req.session.page_views + " times");
@@ -61,10 +61,6 @@ app.use("/meals", mealsRouter);
 app.use("/users", usersRouter);
 
 app.use(express.static(path.join(__dirname, "build")));
-
-// app.get("/*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "build", "index.html"));
-// });
 
 app.listen(port, () =>
   console.log(`FW backen app listening at http://localhost:${port}`)

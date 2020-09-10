@@ -17,6 +17,11 @@ router.route("/add").post((req, res) => {
   const username = req.body.username;
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
+  const email = req.body.email;
+
+  /*
+  Hash passwords or use SSL/TLS
+*/
 
   const newUser = new User({ username, firstName, lastName });
 
@@ -38,7 +43,7 @@ router.route("/add").post((req, res) => {
 // })
 
 router.post("/register", (req, res) => {
-  console.log("reg put");  
+  console.log("reg put");
   User.findOne({ email: req.body.email }).then((user) => {
     if (user) {
       res.status(400).json({ email: "Email already exists" });
@@ -48,11 +53,11 @@ router.post("/register", (req, res) => {
         email: req.body.email,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        password: ""  // Avoid "required" Mongo error by setting to null
+        password: "", // Avoid "required" Mongo error by setting to null
       });
 
       console.log(newUser);
-  
+
       // Hash password before saving in database
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
