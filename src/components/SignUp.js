@@ -4,29 +4,27 @@ import "../styles/Login.css";
 import "whatwg-fetch";
 
 export default function Login() {
+  // useState hook for form data
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [firstName, setFirstname] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  // Api endpoint for registering users
+  const apiUrl = "http://localhost:8000/users/register";
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
 
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   submit();
-  // }
-
-  const data = {
-    email: email,
-    password: password,
-  };
-
-  const apiUrl = "http://localhost:8000/users/register";
+  // // Spliting up fetch funtion call
+  // const data = {
+  //   email: email,
+  //   password: password,
+  // };
 
   function handleSubmit(event) {
-    //alert('A list was submitted: ' + this.state.formvalue);
     event.preventDefault();
     fetch(apiUrl, {
       method: "POST",
@@ -35,13 +33,18 @@ export default function Login() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: this.state.id,
-        item: this.state.item,
-        itemType: this.state.itemType,
+        username: username,
+        firstName: firstName,
+        lastName: lastName,
+        password: password,
+        email: email,
+        // id: this.state.id,
       }),
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((result) => result.json())
+      .then((info) => {
+        console.log(info);
+      })
       .catch((err) => console.log(err));
   }
 
@@ -53,6 +56,42 @@ export default function Login() {
             <Card className="card-signin my-5">
               <CardBody>
                 <h5 className="card-title text-center">Sign Up</h5>
+
+                {/* First name */}
+                <div className="form-label-group">
+                  <input
+                    id="firstName"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    className="form-control"
+                    required
+                  />
+                  <label htmlFor="firstName">First Name</label>
+                </div>
+
+                {/* Last Name */}
+                <div className="form-label-group">
+                  <input
+                    id="lastName"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    className="form-control"
+                    required
+                  />
+                  <label htmlFor="lastName">Last Name</label>
+                </div>
+
+                {/* Username */}
+                <div className="form-label-group">
+                  <input
+                    id="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="form-control"
+                    required
+                  />
+                  <label htmlFor="username">Username</label>
+                </div>
 
                 <Form onSubmit={handleSubmit} className="form-signin">
                   <div className="form-label-group">
