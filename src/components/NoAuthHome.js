@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Jumbotron, Container } from 'reactstrap';
 // import '../styles/Home.css'
 export default class About extends Component {
     render() {
