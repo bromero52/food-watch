@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Form, Button } from "reactstrap";
 import { Typeahead } from 'react-bootstrap-typeahead'
 import options from '../assets/data.js'
 import '../styles/Form.css'

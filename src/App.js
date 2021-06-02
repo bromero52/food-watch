@@ -9,7 +9,6 @@ import SignUp from "./components/SignUp";
 import AddMeal from "./components/AddMeal";
 import AuthHome from "./components/AuthHome";
 import MealViewer from "./components/MealViewer";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/theme.scss";
 
 function App() {
