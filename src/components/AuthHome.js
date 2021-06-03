@@ -4,13 +4,7 @@ export default class About extends Component {
     render() {
         return (
             <div>
-                <Jumbotron>
-                    <Container>
-                        <h1 className="title">
-                            Welcome Back, name. 
-                        </h1>
-                    </Container>
-                </Jumbotron>
+               
             </div>
         )
     }
