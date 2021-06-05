@@ -10,10 +10,13 @@ import AddMeal from "./components/AddMeal";
 import AuthHome from "./components/AuthHome";
 import MealViewer from "./components/MealViewer";
 import "./styles/theme.scss";
+import Layout from "antd/lib/layout/layout";
+import 'antd/dist/antd.css';
+
 
 function App() {
   return (
-    <div className="App">
+    <Layout className="App">
       <Nav />
       <Switch>
         <Route path="/" component={Temp} exact />
@@ -23,7 +26,7 @@ function App() {
         <Route path="/addmeal" component={AddMeal} />
         <Route path="/mymeals" component={MealViewer} />
       </Switch>
-    </div>
+    </Layout>
   );
 }
 
