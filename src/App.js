@@ -1,6 +1,4 @@
 import React, { lazy, Suspense } from "react";
-// import logo from './fw-logo.svg';
-// import './App.css';
 import { Route, Switch } from "react-router";
 import Nav from "./components/Navi";
 import Temp from "./components/Temp";
@@ -9,10 +7,8 @@ import SignUp from "./components/SignUp";
 import AddMeal from "./components/AddMeal";
 import AuthHome from "./components/AuthHome";
 import MealViewer from "./components/MealViewer";
-import "./styles/theme.scss";
 import Layout from "antd/lib/layout/layout";
-import 'antd/dist/antd.css';
-
+import "antd/dist/antd.css";
 
 function App() {
   return (
